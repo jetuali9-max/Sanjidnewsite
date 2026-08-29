@@ -1,131 +1,341 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>My Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WhatsApp Submit Form</title>
 
     <style>
-        table {
-            border-collapse: collapse;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            /* Advanced Background */
+            background:
+                radial-gradient(circle at top left, #6a11cb 0%, transparent 35%),
+                radial-gradient(circle at bottom right, #2575fc 0%, transparent 40%),
+                linear-gradient(135deg, #0f172a, #1e293b, #111827);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Main DIV Container */
+        .main-container {
             width: 100%;
-            text-align: center;
+            max-width: 420px;
+
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 25px;
+            padding: 35px 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+            color: white;
         }
 
-        th, td {
-            border: 1px solid black;
-            width: 150px;
-            height: 120px;
+        /* Avatar DIV */
+        .avatar-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        img {
-            width: 80px;
-            height: 80px;
+        .avatar-box img {
+            width: 100px;
+            height: 100px;
+
             border-radius: 50%;
             object-fit: cover;
+
+            border: 4px solid #ffffff;
+
+            box-shadow:
+                0 0 20px #00f2fe,
+                0 0 40px rgba(0, 242, 254, 0.5);
         }
 
-        .form-box {
-            margin-top: 20px;
+        /* Title */
+        .title {
             text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
 
-        input {
-            padding: 8px;
-            margin: 5px;
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 25px;
         }
 
-        button {
-            padding: 8px 15px;
-            background: green;
+        /* Form DIV */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            background: rgba(255, 255, 255, 0.12);
             color: white;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 12px;
+
+            padding: 14px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #cbd5e1;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #00f2fe;
+
+            box-shadow:
+                0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        /* Unique Submit Button */
+        .whatsapp-submit-btn {
+            width: 100%;
+
+            padding: 15px;
+
             border: none;
-            border-radius: 5px;
+            border-radius: 14px;
+
+            background: linear-gradient(
+                135deg,
+                #25D366,
+                #128C7E
+            );
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            position: relative;
+            overflow: hidden;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 10px 25px rgba(37, 211, 102, 0.35);
+        }
+
+        /* Button Shine Effect */
+        .whatsapp-submit-btn::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.4),
+                transparent
+            );
+
+            transition: 0.5s;
+        }
+
+        .whatsapp-submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-submit-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(37, 211, 102, 0.55);
+        }
+
+        .whatsapp-submit-btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 18px;
+
+            font-size: 12px;
+            color: #94a3b8;
         }
     </style>
-
 </head>
+
 <body>
 
-<h1><u>MC LIST</u></h1>
+    <!-- Main DIV -->
+    <div class="main-container">
 
-<table>
-    <tr>
-        <th>NAME</th>
-        <th>PHOTO</th>
-        <th>GF</th>
-    </tr>
+        <!-- Avatar DIV -->
+        <div class="avatar-box">
 
-    <tr>
-        <td><mark>ABDULLAH</mark></td>
-        <td><img src="https://i.ibb.co.com/7N2DjBVf/IMG-20260414-160115-removebg-preview.png"></td>
-        <td>(-1) guwa mara khwe che</td>
-    </tr>
+            <!-- এখানে আপনার Avatar Image SRC Link দিন -->
+            <a href="https://ibb.co.com/WNpgzjMy"><img src="https://i.ibb.co.com/DPg5MTvC/i-Phone-Vivid-Mazhar-Pictures-LMC-20260322-173520-i-Phone-Vivid-Mazhar-Pictures-LMC-PORTRAIT.jpg" alt="i-Phone-Vivid-Mazhar-Pictures-LMC-20260322-173520-i-Phone-Vivid-Mazhar-Pictures-LMC-PORTRAIT" border="0"></a>
 
-    <tr>
-        <td><mark>HABIBUR</mark></td>
-        <td><img src="https://i.ibb.co.com/s9RQL5sf/IMG-20260520-161759.jpg"></td>
-        <td>AMI <i>LOCHHA MEYE DEKHLE 🤤</i></td>
-    </tr>
+        </div>
 
-    <tr>
-        <td><mark>RAYHAN</mark></td>
-        <td><img src="https://i.ibb.co.com/DH7ysM44/Screenshot-2026-07-13-01-25-25-962-com-zhiliaoapp-musically-edit.jpg"></td>
-        <td>bibahito go jamawi 🫃</td>
-    </tr>
+        <h1 class="title">Contact Us</h1>
 
-    <!-- Inbox Row -->
-    <tr>
-        <td><a href="https://wa.me/8801628801587">Inbox</a></td>
-        <td><a href="https://wa.me/8801628801587">Add New</a></td>
-        <td><a href="https://wa.me/8801628801587">Send Info 📥</a></td>
-    </tr>
+        <p class="subtitle">
+            Send your message directly to WhatsApp
+        </p>
 
-</table>
 
-<hr>
+        <!-- Form DIV -->
+        <div class="form-group">
 
-<!-- FORM -->
-<div class="form-box">
-    <h3>Add Yourself</h3>
+            <label>Your Name</label>
 
-    <input type="text" id="name" placeholder="Your Name"><br>
-    <input type="number" id="number" placeholder="Your Number"><br>
-    <input type="file"><br>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+            >
 
-    <button onclick="sendToWhatsApp()">Send to Inbox</button>
-</div>
+        </div>
 
-<hr>
 
-<!-- CONTACT -->
-<p style="text-align:center; color:green;">
-    <mark>jara number dichea tader contact number </mark>
-</p>
+        <div class="form-group">
 
-<div style="text-align:center;">
-    <a href="https://wa.me/8801827741059">📱 Abdullah</a><br><br>
-    <a href="https://wa.me/8801880441162">📱 Habibur</a><br><br>
-    <a href="https://wa.me/8801311708790">📱 Rayhan</a>
-</div>
+            <label>Your Message</label>
 
-<!-- FOOTER -->
-<footer style="background:black; text-align:center; padding:10px; margin-top:20px;">
-    <p style="color:white;">© sanjid</p>
-</footer>
+            <textarea
+                id="message"
+                placeholder="Write your message..."
+            ></textarea>
 
-<script>
-function sendToWhatsApp() {
-    var name = document.getElementById("name").value;
-    var number = document.getElementById("number").value;
+        </div>
 
-    var message = "ami add korte chai plz add koren %0AName: " + name + "%0ANumber: " + number;
 
-    var phone = "8801628801587";
+        <!-- Unique Submit Button -->
+        <button
+            class="whatsapp-submit-btn"
+            onclick="sendToWhatsApp()"
+        >
+            🚀 SUBMIT TO WHATSAPP
+        </button>
 
-    var url = "https://wa.me/" + phone + "?text=" + message;
 
-    window.open(url, "_blank");
-}
-</script>
+        <div class="footer-text">
+            Secure • Fast • Direct WhatsApp Message
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function sendToWhatsApp() {
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let message =
+                document.getElementById("message").value.trim();
+
+
+            /* Validation */
+
+            if (name === "") {
+                alert("Please enter your name!");
+                return;
+            }
+
+            if (message === "") {
+                alert("Please enter your message!");
+                return;
+            }
+
+
+            /* WhatsApp Number */
+
+            let phoneNumber = "8801628801587";
+
+
+            /* Create Message */
+
+            let whatsappMessage =
+                "👤 *New Form Submission*%0A%0A" +
+                "📝 *Name:* " + name + "%0A%0A" +
+                "💬 *Message:* " + message;
+
+
+            /* WhatsApp URL */
+
+            let whatsappURL =
+                "https://wa.me/" +
+                phoneNumber +
+                "?text=" +
+                encodeURIComponent(
+                    "👤 New Form Submission\n\n" +
+                    "📝 Name: " + name +
+                    "\n\n💬 Message: " + message
+                );
+
+
+            /* Open WhatsApp */
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
+
+    </script>
 
 </body>
 </html>
