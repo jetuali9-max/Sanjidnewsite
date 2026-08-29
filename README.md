@@ -269,7 +269,7 @@
 
 
         <div class="footer-text">
-            Secure • Fast • Direct WhatsApp Message
+            AMI •  SANJID  •  MS
         </div>
 
     </div>
@@ -308,8 +308,8 @@
             /* Create Message */
 
             let whatsappMessage =
-                "👤 *New Form Submission*%0A%0A" +
-                "📝 *Name:* " + name + "%0A%0A" +
+                "👤 *AKHON MSG DILAM *%0A%0A" +
+                "📝 *AMR NAM* " + name + "%0A%0A" +
                 "💬 *Message:* " + message;
 
 
